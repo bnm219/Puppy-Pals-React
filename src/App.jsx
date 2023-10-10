@@ -8,20 +8,23 @@ function App() {
   // console.log("Data: ", puppies)
 
   function handleClick() {
-    onClick = {
-      ()=> { console.log("puppy id: ", puppy.id) }
+  //  ()=>{ console.log("puppy id: ", puppy.id) }
   }
-  // <p onClick={()} key={puppy.id}>{puppy.name} </p>
-
-
-
+  
   return (
     <>
       {
         puppies.map((puppy) => {
-          return <p key={puppy.id}>{puppy.name}</p>
+          return  (
+          <p onClick={()=>{setFeatPupId(puppy.id)}} key={puppy.id}>
+          {puppy.name}
+        </p>
+        );
         })
 
+      }
+      {
+        featPupId && <p>{ featPupId }</p>
       }
     </>
   )
